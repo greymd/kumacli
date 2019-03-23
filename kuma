@@ -3,7 +3,7 @@ msg() {
   local _msg="${1-}"
   cat << _EOF_
               $( echo "$_msg" | sed 's/^/( /;s/$/ )/;' )
-/             ( )
+             ( )
             o
   (^)___(^)
  /  ●  。 ● \\
@@ -26,14 +26,27 @@ right() {
 (      人   )
 _EOF_
 }
+
+club () {
+  cat << _EOF_
+          　　　  (クラブに行きたいなあ)
+  (^)___(^)　　◯
+ /   ● . ● \\
+(      人    )
+_EOF_
+}
+
 main() {
-  cmd="$1"
+  cmd="${1:-クラブに行きたいなあ}"
   case "$cmd" in
     left)
       left
       ;;
     right)
       right
+      ;;
+    club)
+      club
       ;;
     *)
       msg "$cmd"
