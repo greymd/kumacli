@@ -1,0 +1,14 @@
+#!/bin/bash
+main() {
+  local _msg="${1-}"
+  cat << _EOF_
+              $( echo "$_msg" | sed 's/^/( /;s/$/ )/;' )
+             ( )
+            o
+  (^)___(^)
+ /  ●  。 ● \\
+(      人    )
+_EOF_
+}
+
+main "${1+"$@"}"
