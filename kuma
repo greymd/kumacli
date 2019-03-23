@@ -36,6 +36,15 @@ club () {
 _EOF_
 }
 
+pon () {
+  cat << _EOF_
+  (^)___(^)
+/           \\
+|   ● . ●   |
+\\     人    /
+_EOF_
+}
+
 main() {
   cmd="${1:-クラブに行きたいなあ}"
   case "$cmd" in
@@ -47,6 +56,9 @@ main() {
       ;;
     club)
       club
+      ;;
+    pon)
+      pon
       ;;
     *)
       msg "$cmd"
