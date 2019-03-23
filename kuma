@@ -1,14 +1,43 @@
 #!/bin/bash
-main() {
+msg() {
   local _msg="${1-}"
   cat << _EOF_
               $( echo "$_msg" | sed 's/^/( /;s/$/ )/;' )
-             ( )
+/             ( )
             o
   (^)___(^)
  /  ●  。 ● \\
 (      人    )
 _EOF_
+}
+
+left() {
+  cat << _EOF_
+  (^)___(^)
+ / ● 。 ● \\
+(   人     )
+_EOF_
+}
+
+right() {
+  cat << _EOF_
+  (^)___(^)
+ /  ●  。 ●\\
+(      人   )
+_EOF_
+}
+main() {
+  cmd="$1"
+  case "$cmd" in
+    left)
+      left
+      ;;
+    right)
+      right
+      ;;
+    *)
+      msg "$cmd"
+  esac
 }
 
 main "${1+"$@"}"
